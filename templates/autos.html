@@ -1,11 +1,9 @@
-{% load static %}
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Autos usados Spacech</title>
-    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Document</title>
   </head>
   <body>
     <header><h1>Autos usados Spacech</h1></header>
@@ -15,5 +13,11 @@
         <a href={% url "Autos" %}>Lista de autos </a>
         
     </nav>
+    <ul>
+      {% for auto in autos %}
+      <li>{{auto}}</li>
+
+      {% endfor %}
+    </ul>
   </body>
 </html>

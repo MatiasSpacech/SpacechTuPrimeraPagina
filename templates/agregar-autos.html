@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header><h1>Autos usados Spacech</h1></header>
+    <nav>
+        <a href={% url "principal" %}>Inicio</a>
+        <a href={% url "AgregarAutos" %}>Agregar un auto</a>
+        <a href={% url "Autos" %}>Lista de autos </a>
+        
+    </nav>
+    <h2>Agregar Auto</h2>
+
+    <form action={% url "AgregarAutos" %} method="POST">
+        {% csrf_token %}
+        
+        <table>
+            {{formulario}}
+        </table>
+        
+        <input type="submit" value="Crear Auto">
+    </form>
+
+</body>
+</html>
