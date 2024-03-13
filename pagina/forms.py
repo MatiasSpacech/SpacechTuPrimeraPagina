@@ -5,3 +5,6 @@ class formularioAutos (forms.Form):
     modelo = forms.CharField(max_length=20)
     color = forms.CharField(max_length=20)
     kilometros = forms.IntegerField()
+    
+class BuscarAuto (forms.Form):
+    modelo = forms.CharField(max_length=20 , required=False)

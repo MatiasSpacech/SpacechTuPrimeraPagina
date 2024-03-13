@@ -14,11 +14,21 @@
         <a href={% url "Autos" %}>Lista de autos </a>
         
     </nav>
+    <h3>Listado de Autos en Stock</h3>
+    <form action={% url 'Autos'%}>
+      {{formulario}}
+      <input type="submit" value="Buscar Auto">
+    </form>
+    {% if autos %}
     <ul>
       {% for auto in autos %}
       <li>{{auto}}</li>
 
       {% endfor %}
     </ul>
+    {% else %}
+    <p>No se encontraron autos de ese Modelo</p>
+    {% endif %}
+
   </body>
 </html>
