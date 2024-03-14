@@ -1,7 +1,7 @@
 from django.shortcuts import render , redirect
 from django.http import HttpResponse
 from pagina.models import Auto
-from pagina.forms import formularioAutos, BuscarAuto
+from pagina.forms import formularioAutos, BuscarAuto, formularioEdicionAutos
 # Create your views here.
 def pagina(request):
     return render(request , 'pagina/principal.html')
@@ -38,3 +38,18 @@ def eliminar_auto(request, id_auto):
     auto = Auto.objects.get(id=id_auto)
     auto.delete()
     return redirect('Autos')
+
+def editar_auto(request, id_auto):
+    auto = Auto.objects.get(id=id_auto)
+    formulario = formularioEdicionAutos(initial={'marca': auto.marca , 'modelo': auto.modelo , 'color': auto.color, 'kilometros': auto.kilometros})
+    if request.method == "POST":
+        formulario = formularioEdicionAutos(request.POST)
+        if formulario.is_valid():
+            info = formulario.cleaned_data
+            auto.marca = info.get('marca')
+            auto.modelo = info.get('modelo')
+            auto.color = info.get('color')
+            auto.kilometros = info.get('kilometros')
+            auto.save()
+            return redirect('Autos')
+    return render(request, 'pagina/editar_auto.html' , {'auto': auto , 'formulario': formulario})
