@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+    {% block h1_header %}Listado de Autos en Stock{% endblock h1_header %}
+    {% block main %}
+    <form action={% url 'Autos'%}>
+      {{formulario}}
+      <input type="submit" value="Buscar Auto">
+    </form>
+    {% if autos %}
+    <ul>
+      {% for auto in autos %}
+      <li>{{auto}} | 
+        <a href={% url 'ver_auto' auto.id %}>Ver</a>
+      </li>
+
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se encontraron autos de ese Modelo</p>
+    {% endif %}
+    {% endblock main %}
+
+
