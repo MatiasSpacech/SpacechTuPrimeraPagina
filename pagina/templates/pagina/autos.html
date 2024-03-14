@@ -9,7 +9,8 @@
     <ul>
       {% for auto in autos %}
       <li>{{auto}} | 
-        <a href={% url 'ver_auto' auto.id %}>Ver</a>
+        <a href={% url 'ver_auto' auto.id %}>Ver</a> |
+        <a href={% url 'eliminar_auto' auto.id %}>Eliminar</a>||
       </li>
 
       {% endfor %}

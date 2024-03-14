@@ -33,3 +33,8 @@ def agregar_autos (request):
 def ver_auto(request, id_auto):
     auto = Auto.objects.get(id=id_auto)
     return render(request, 'pagina/ver_auto.html', {'auto':auto})
+
+def eliminar_auto(request, id_auto):
+    auto = Auto.objects.get(id=id_auto)
+    auto.delete()
+    return redirect('Autos')
