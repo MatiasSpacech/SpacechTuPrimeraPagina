@@ -8,4 +8,4 @@ class Auto (models.Model):
     kilometros = models.IntegerField()
     
     def __str__(self) :
-        return f"{self.marca}  {self.modelo} color {self.color} con {self.kilometros}KM"
+        return f"{self.marca.capitalize()}  {self.modelo.capitalize()} color {self.color} con {self.kilometros}KM"
