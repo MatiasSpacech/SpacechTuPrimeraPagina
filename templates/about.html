@@ -1,8 +1,12 @@
 {% extends "base.html" %} 
+{% load static %}
 {% block h1_header %} 
 Acerca de mi: 
 {% endblock h1_header %}
 {% block main %}
-<p>Me llamo Eduardo Matias Spacech</p>
+<h5>Me llamo Eduardo Matias Spacech</h5>
+<p>Esta pagina esta creada usando el framework Django como parte del trabajo 
+    final del curso de python flex de coderhouse</p>
+    <img src={%static "imagenes/django.jpg" %} alt="" height="200px">
 
 {% endblock main %}
